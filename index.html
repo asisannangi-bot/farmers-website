@@ -1,130 +1,105 @@
-Save this as `index.html` and upload it to GitHub.
-
-```html id="u8v9w1"
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Farmers Support Website</title>
 
-    <style>
+<title>Indian Farmers Support Website</title>
 
-        body{
-            margin:0;
-            font-family:Arial;
-            background:#f0fff0;
-            text-align:center;
-        }
+<style>
 
-        header{
-            background:green;
-            color:white;
-            padding:20px;
-        }
+body{
+margin:0;
+font-family:Arial;
+background:#f0fff0;
+text-align:center;
+}
 
-        .hero{
-            padding:80px 20px;
-        }
+header{
+background:green;
+color:white;
+padding:20px;
+}
 
-        .card{
-            background:white;
-            width:280px;
-            margin:20px auto;
-            padding:20px;
-            border-radius:10px;
-            box-shadow:0 0 10px gray;
-        }
+.hero{
+padding:40px;
+}
 
-        input{
-            width:90%;
-            padding:10px;
-            margin:10px 0;
-        }
+.card{
+background:white;
+width:350px;
+margin:20px auto;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px gray;
+}
 
-        button{
-            background:green;
-            color:white;
-            border:none;
-            padding:10px 20px;
-            border-radius:5px;
-            cursor:pointer;
-        }
+select,
+button{
+padding:10px;
+width:270px;
+margin:10px;
+border-radius:5px;
+}
 
-        button:hover{
-            background:darkgreen;
-        }
+button{
+background:green;
+color:white;
+border:none;
+cursor:pointer;
+}
 
-    </style>
+button:hover{
+background:darkgreen;
+}
+
+#result{
+margin-top:20px;
+font-size:18px;
+color:green;
+font-weight:bold;
+}
+
+a{
+color:white;
+text-decoration:none;
+}
+
+</style>
 
 </head>
 
 <body>
 
 <header>
-    <h1>🌱 Farmers Support Website</h1>
+
+<h1>🌱 Indian Farmers Support Website</h1>
+
+<h3>
+🇮🇳 Country : India
+</h3>
+
+<a href="https://www.india.gov.in"
+target="_blank">
+
+Visit India Government Website
+
+</a>
+
 </header>
 
 <section class="hero">
 
-    <h2>Welcome Farmers</h2>
+<h2>Welcome Indian Farmers</h2>
 
-    <p>
-        Crop Guidance | Weather Updates |
-        Market Prices | Government Schemes
-    </p>
+<p>
 
-    <div class="card">
+Crop Guidance |
+Weather Updates |
+Market Prices |
+Government Schemes
 
-        <h3>Farmer Registration</h3>
+</p>
 
-        <input type="text"
-        id="name"
-        placeholder="Enter Name">
-
-        <input type="email"
-        id="email"
-        placeholder="Enter Email">
-
-        <input type="password"
-        id="password"
-        placeholder="Enter Password">
-
-        <button onclick="register()">
-            Register
-        </button>
-
-    </div>
-
-    <div class="card">
-
-        <h3>Farmer Login</h3>
-
-        <input type="email"
-        id="loginEmail"
-        placeholder="Enter Email">
-
-        <input type="password"
-        id="loginPassword"
-        placeholder="Enter Password">
-
-        <button onclick="login()">
-            Login
-        </button>
-
-    </div>
-
-</section>
-<h3>Select Country</h3>
-
-<select id="country">
-
-<option>India</option>
-<option>USA</option>
-<option>Australia</option>
-<option>Canada</option>
-
-</select>
-
-<br><br>
+<div class="card">
 
 <h3>Select Language</h3>
 
@@ -134,112 +109,99 @@ Save this as `index.html` and upload it to GitHub.
 <option>Hindi</option>
 <option>Telugu</option>
 <option>Tamil</option>
+<option>Kannada</option>
+<option>Malayalam</option>
+<option>Marathi</option>
 
 </select>
 
-<br><br>
+<h3>Select Weather</h3>
 
-<script>
+<select id="weather">
 
-function register(){
-
-    localStorage.setItem(
-        "email",
-        document.getElementById("email").value
-    );
-
-    localStorage.setItem(
-        "password",
-        document.getElementById("password").value
-    );
-
-    alert("Registration Successful");
-
-}
-
-function login(){
-
-    let email =
-    document.getElementById("loginEmail").value;
-
-    let password =
-    document.getElementById("loginPassword").value;
-
-    if(
-        email ==
-        localStorage.getItem("email")
-
-        &&
-
-        password ==
-        localStorage.getItem("password")
-    ){
-
-        alert("Login Successful");
-
-    }else{
-
-        alert("Invalid Login");
-
-    }
-
-}
-
-<h3>Select Season</h3>
-
-<select id="season">
-
-<option>Kharif (Rainy)</option>
-<option>Rabi (Winter)</option>
-<option>Zaid (Summer)</option>
+<option>Rainy</option>
+<option>Winter</option>
+<option>Summer</option>
+<option>Hot and Dry</option>
+<option>Cool Climate</option>
 
 </select>
-
-<br><br>
 
 <button onclick="cropSuggestion()">
+
 Get Crop Suggestions
+
 </button>
 
 <h2 id="result"></h2>
+
+</div>
+
+</section>
+
+<script>
+
 function cropSuggestion(){
 
-let season =
-document.getElementById("season").value;
+let weather =
+document.getElementById("weather").value;
 
 let result =
 document.getElementById("result");
 
-if(season=="Kharif (Rainy)"){
+if(weather=="Rainy"){
 
 result.innerHTML =
 
-"🌾 Recommended Crops:<br><br>" +
+"🌧️ Best Crops:<br><br>" +
 
 "• Rice<br>" +
-"• Maize<br>" +
-"• Cotton<br>" +
-"• Soybean<br>" +
-"• Groundnut<br>" +
 "• Sugarcane<br>" +
-"• Bajra<br>" +
-"• Turmeric";
+"• Cotton<br>" +
+"• Maize<br>" +
+"• Soybean<br>" +
+"• Groundnut";
 
 }
 
-else if(season=="Rabi (Winter)"){
+else if(weather=="Winter"){
 
 result.innerHTML =
 
-"🌱 Recommended Crops:<br><br>" +
+"❄️ Best Crops:<br><br>" +
 
 "• Wheat<br>" +
-"• Barley<br>" +
 "• Mustard<br>" +
-"• Peas<br>" +
+"• Barley<br>" +
 "• Gram<br>" +
-"• Sunflower<br>" +
-"• Oats";
+"• Peas";
+
+}
+
+else if(weather=="Summer"){
+
+result.innerHTML =
+
+"☀️ Best Crops:<br><br>" +
+
+"• Watermelon<br>" +
+"• Muskmelon<br>" +
+"• Cucumber<br>" +
+"• Pumpkin<br>" +
+"• Vegetables";
+
+}
+
+else if(weather=="Hot and Dry"){
+
+result.innerHTML =
+
+"🔥 Best Crops:<br><br>" +
+
+"• Millet<br>" +
+"• Sorghum<br>" +
+"• Cotton<br>" +
+"• Pulses";
 
 }
 
@@ -247,14 +209,12 @@ else{
 
 result.innerHTML =
 
-"☀️ Recommended Crops:<br><br>" +
+"🌿 Best Crops:<br><br>" +
 
-"• Watermelon<br>" +
-"• Muskmelon<br>" +
-"• Cucumber<br>" +
-"• Vegetables<br>" +
-"• Fodder Crops<br>" +
-"• Pumpkin";
+"• Apple<br>" +
+"• Potato<br>" +
+"• Tea<br>" +
+"• Carrot";
 
 }
 
@@ -264,4 +224,3 @@ result.innerHTML =
 
 </body>
 </html>
-```
