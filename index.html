@@ -1,0 +1,167 @@
+Save this as `index.html` and upload it to GitHub.
+
+```html id="u8v9w1"
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmers Support Website</title>
+
+    <style>
+
+        body{
+            margin:0;
+            font-family:Arial;
+            background:#f0fff0;
+            text-align:center;
+        }
+
+        header{
+            background:green;
+            color:white;
+            padding:20px;
+        }
+
+        .hero{
+            padding:80px 20px;
+        }
+
+        .card{
+            background:white;
+            width:280px;
+            margin:20px auto;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px gray;
+        }
+
+        input{
+            width:90%;
+            padding:10px;
+            margin:10px 0;
+        }
+
+        button{
+            background:green;
+            color:white;
+            border:none;
+            padding:10px 20px;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:darkgreen;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>🌱 Farmers Support Website</h1>
+</header>
+
+<section class="hero">
+
+    <h2>Welcome Farmers</h2>
+
+    <p>
+        Crop Guidance | Weather Updates |
+        Market Prices | Government Schemes
+    </p>
+
+    <div class="card">
+
+        <h3>Farmer Registration</h3>
+
+        <input type="text"
+        id="name"
+        placeholder="Enter Name">
+
+        <input type="email"
+        id="email"
+        placeholder="Enter Email">
+
+        <input type="password"
+        id="password"
+        placeholder="Enter Password">
+
+        <button onclick="register()">
+            Register
+        </button>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Farmer Login</h3>
+
+        <input type="email"
+        id="loginEmail"
+        placeholder="Enter Email">
+
+        <input type="password"
+        id="loginPassword"
+        placeholder="Enter Password">
+
+        <button onclick="login()">
+            Login
+        </button>
+
+    </div>
+
+</section>
+
+<script>
+
+function register(){
+
+    localStorage.setItem(
+        "email",
+        document.getElementById("email").value
+    );
+
+    localStorage.setItem(
+        "password",
+        document.getElementById("password").value
+    );
+
+    alert("Registration Successful");
+
+}
+
+function login(){
+
+    let email =
+    document.getElementById("loginEmail").value;
+
+    let password =
+    document.getElementById("loginPassword").value;
+
+    if(
+        email ==
+        localStorage.getItem("email")
+
+        &&
+
+        password ==
+        localStorage.getItem("password")
+    ){
+
+        alert("Login Successful");
+
+    }else{
+
+        alert("Invalid Login");
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
+```
